@@ -1,0 +1,94 @@
+{
+  "name": "react-head-start",
+  "version": "0.9.0",
+  "description": "Bootstrap for a React App with Server Side Rendering, Code Splitting, Hot Reloading, Redux and React Router",
+  "keywords": [
+    "react",
+    "bootstrap"
+  ],
+  "author": "Greg Tillbrook",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npm run dev:build & npm run dev:serve",
+    "prod": "npm run prod:build && npm run prod:serve",
+    "clean": "rimraf dist",
+    "dev:build": "npm run clean && cross-env NODE_ENV=development parcel watch ./src/client/index.js --out-dir ./dist/bundles",
+    "dev:serve": "cross-env NODE_ENV=development npx nodemon --exec babel-node --ext js,jsx --delay 0.5 --watch src --watch test src/server/",
+    "prod:build": "npm run clean && npm run prod:copy-files && npm run prod:build-client && npm run prod:build-server ",
+    "prod:build-client": "cross-env NODE_ENV=production parcel build ./src/client/index.js --public-url / --out-dir ./dist/bundles",
+    "prod:build-server": "cd src/ && npx babel './**/*.{js,jsx}' --no-babelrc --presets react,node8 --plugins transform-class-properties,syntax-dynamic-import --out-dir '../dist' --ignore test.js",
+    "prod:copy-files": "cd src/ && npx copyfiles './{static,static-root}/**/*' ../dist",
+    "prod:serve": "cross-env NODE_ENV=production node dist/server/",
+    "test": "npm run lint && npm run test:unit && npm run test:e2e",
+    "lint": "npx eslint --ext jsx,js src/** test/**",
+    "test:unit": "npx jest --config ./test/unit-test/jest.config.js",
+    "test:e2e": "echo e2e tests are still todo"
+  },
+  "browser": {
+    "./src/client/codeSplitMappingsSync.js": "./src/client/codeSplitMappingsAsync.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.1",
+    "config": "^1.28.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "log4js": "^2.4.1",
+    "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-node8": "^1.2.0",
+    "babel-preset-react": "^6.24.1",
+    "cheerio": "^1.0.0-rc.2",
+    "copyfiles": "^1.2.0",
+    "cross-env": "^5.1.1",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "eslint": "^4.13.1",
+    "eslint-plugin-jest": "^21.5.0",
+    "eslint-plugin-react": "^7.5.1",
+    "jest": "^21.2.1",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.12.7",
+    "parcel-bundler": "^1.1.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-async-component": "^1.0.2",
+    "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-config": "^1.0.0-beta.4",
+    "react-router-dom": "^4.2.2",
+    "react-router-test-context": "^0.1.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "rimraf": "^2.6.2"
+  },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "not ie < 9"
+        ],
+        "flexbox": "no-2009"
+      }
+    }
+  }
+}

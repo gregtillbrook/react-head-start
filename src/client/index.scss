@@ -1,0 +1,14 @@
+//core
+@import "./global-scss/vars";
+@import "./global-scss/reset";
+@import "./global-scss/common";
+
+//components
+@import "./components/common/MainHeader/MainHeader";
+@import "./components/common/MainFooter/MainFooter";
+@import "./components/common/MainLayout/MainLayout";
+
+//pages
+@import "./pages/UsersPage/UsersPage";
+@import "./pages/HomePage/HomePage";
+@import "./pages/ErrorPage/ErrorPage";

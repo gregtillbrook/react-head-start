@@ -1,0 +1,2 @@
+robotsUser-agent: *
+Disallow: /api/
