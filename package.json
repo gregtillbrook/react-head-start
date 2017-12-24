@@ -7,6 +7,7 @@
     "bootstrap"
   ],
   "author": "Greg Tillbrook",
+  "repository": "gregtillbrook/react-head-start",
   "license": "MIT",
   "engines": {
     "node": ">=8"
