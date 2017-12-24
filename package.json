@@ -1,14 +1,8 @@
 {
   "name": "react-head-start",
   "version": "0.9.0",
-  "description": "Bootstrap for a React App with Server Side Rendering, Code Splitting, Hot Reloading, Redux and React Router",
-  "keywords": [
-    "react",
-    "bootstrap"
-  ],
+  "description": "React App bootstrap with Server Side Rendering, Code Splitting, Hot Reloading, Redux and React Router",
   "author": "Greg Tillbrook",
-  "repository": "gregtillbrook/react-head-start",
-  "license": "MIT",
   "engines": {
     "node": ">=8"
   },
@@ -32,6 +26,20 @@
   "browser": {
     "./src/client/codeSplitMappingsSync.js": "./src/client/codeSplitMappingsAsync.js"
   },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "not ie < 9"
+        ],
+        "flexbox": "no-2009"
+      }
+    }
+  }, 
   "dependencies": {
     "compression": "^1.7.1",
     "config": "^1.28.1",
@@ -78,18 +86,19 @@
     "redux-thunk": "^2.2.0",
     "rimraf": "^2.6.2"
   },
-  "postcss": {
-    "modules": false,
-    "plugins": {
-      "autoprefixer": {
-        "browsers": [
-          ">1%",
-          "last 4 versions",
-          "Firefox ESR",
-          "not ie < 9"
-        ],
-        "flexbox": "no-2009"
-      }
-    }
-  }
+  "keywords": [
+    "react",
+    "bootstrap",
+    "head start",
+    "redux",
+    "react-router",
+    "express",
+    "ssr",
+    "server side render",
+    "code splitting",
+    "hot loading",
+    "boilerplate"
+  ],
+  "repository": "gregtillbrook/react-head-start",
+  "license": "MIT"
 }
