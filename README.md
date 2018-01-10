@@ -12,7 +12,7 @@ A rich performant react app can have a lot of fiddly parts once you start adding
 
 ### 🚀 All the react goodness
  - [React v16](https://www.npmjs.com/package/react), [Redux](https://www.npmjs.com/package/redux), [React Router v4](https://www.npmjs.com/package/react-router) provide the core
- - ES2017+ for clean modern javascript
+ - ES2017+ standard modern javascript (+ static class props because )
  - Server is [express v4](https://www.npmjs.com/package/express) (running on Node 8 and up)
 
 ### 📦 Production ready
@@ -30,9 +30,9 @@ A rich performant react app can have a lot of fiddly parts once you start adding
  - (TODO) watch tasks to lint and unit test continuously on code changes
 
 ### ⛑ Code Quality
- - Code linting with eslint
- - Unit testing with jest
- - (TODO) End to end/integration testing with pupeteer (or something like that)
+ - Syntax checking (aka linting) with [eslint](https://www.npmjs.com/package/eslint)
+ - Unit testing with [jest](http://facebook.github.io/jest/)
+ - End to end/integration testing with [cypress](https://www.cypress.io/)
 
 
 # Getting started
@@ -40,6 +40,6 @@ A rich performant react app can have a lot of fiddly parts once you start adding
 ```console
 git clone git@github.com:gregtillbrook/react-head-start.git my-react-app
 cd my-react-app
-npm install
+npm installs
 npm run dev
 ```

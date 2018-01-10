@@ -11,12 +11,15 @@ module.exports = {
       "jest/globals": true
   },
   "globals":{
+    //unit tests
     "expect":true,
     "shallow":true,
     "render":true,
     "mount":true,
     "jest":true,
     "beforeAll":true,
+    //e2e tests
+    "cy":true,
   },
   "parserOptions": {
       "ecmaFeatures": {

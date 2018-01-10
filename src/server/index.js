@@ -34,9 +34,13 @@ app.get('/api/users', getUsers);
 app.get('*', renderPageRoute);
 
 
-let server = app.listen(config.port, function () {
+const server = app.listen(config.port, function () {
   banner();
   log.info(`Server started on port ${server.address().port} in ${app.get('env')} mode`);
   //eslint-disable-next-line no-console
   console.log(config);
+  server.emit('ready');  
 });
+
+//export server instance so we can hook into it in e2e tests etc
+export default server;

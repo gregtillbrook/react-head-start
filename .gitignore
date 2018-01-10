@@ -3,3 +3,6 @@ dist
 logs
 coverage
 .cache
+config/local.js
+test/e2e-test/videos
+test/e2e-test/screenshots

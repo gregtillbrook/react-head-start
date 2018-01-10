@@ -1,11 +1,14 @@
 //put all app configuration here with a sensible default
+//more docs on how config files work = https://github.com/lorenwest/node-config/wiki/Configuration-Files
+//note: temp local config can be put into config/local.js (it's git ignored)
 
 module.exports = {
   host: undefined,
   port: 5000,
 
-  //config inside here will be available in the browser react app
+  //config inside here will be available in the client browser app
   clientConfig:{
+    //WARNING: dont put anything sensitive in here - it WILL be publicly visible
     exampleProp:1234
   },
 

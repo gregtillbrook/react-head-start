@@ -21,7 +21,8 @@
     "test": "npm run lint && npm run test:unit && npm run test:e2e",
     "lint": "npx eslint --ext jsx,js src/** test/**",
     "test:unit": "npx jest --config ./test/unit-test/jest.config.js",
-    "test:e2e": "echo e2e tests are still todo"
+    "test:e2e": "npm run prod:build && NODE_ENV=test node-while -s ./dist/server/index.js -r 'npx cypress run'",
+    "todo": "npx fixme -i 'node_modules/**' -i '.git/**' -i 'dist/**' --skip note"
   },
   "browser": {
     "./src/client/codeSplitMappingsSync.js": "./src/client/codeSplitMappingsAsync.js"
@@ -39,7 +40,7 @@
         "flexbox": "no-2009"
       }
     }
-  }, 
+  },
   "dependencies": {
     "compression": "^1.7.1",
     "config": "^1.28.1",
@@ -64,13 +65,16 @@
     "cheerio": "^1.0.0-rc.2",
     "copyfiles": "^1.2.0",
     "cross-env": "^5.1.1",
+    "cypress": "^1.4.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^4.13.1",
     "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-react": "^7.5.1",
+    "fixme": "^0.4.4",
     "jest": "^21.2.1",
     "node-sass": "^4.7.2",
+    "node-while": "^1.0.1",
     "nodemon": "^1.12.7",
     "parcel-bundler": "^1.1.0",
     "prop-types": "^15.6.0",
