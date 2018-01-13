@@ -4,16 +4,23 @@ import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import path from 'path';
 import config from 'config';
+import morgan from 'morgan';
 
 import renderPageRoute from './routes/renderPageRoute';
 import {getUsers} from './routes/apiRoute';
 import banner from './utils/banner';
 import getLog from './utils/logger';
 
-const log = getLog(__filename);
 const app = express();
 
+//logging
+const log = getLog();
+if(config.logIncomingHttpRequests){
+  const incomingLog = getLog('INCOMING');
+  app.use(morgan('short', { stream: { write: message => incomingLog.info(message.trim()) }}));
+}
 
+//TODO: helmet
 //dont reveal whats running server
 app.disable('x-powered-by');
 
@@ -37,9 +44,11 @@ app.get('*', renderPageRoute);
 const server = app.listen(config.port, function () {
   banner();
   log.info(`Server started on port ${server.address().port} in ${app.get('env')} mode`);
-  //eslint-disable-next-line no-console
-  console.log(config);
-  server.emit('ready');  
+  //Its very useful to output init config to console at startup but we deliverately dont dump it to
+  //log files incase it contains sensetive info
+  console.log(config);//eslint-disable-line no-console
+  //'ready' is a hook used by the e2e (integration) tests (see node-while)
+  server.emit('ready');
 });
 
 //export server instance so we can hook into it in e2e tests etc

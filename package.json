@@ -42,12 +42,14 @@
     }
   },
   "dependencies": {
+    "caller-callsite": "^2.0.0",
     "compression": "^1.7.1",
     "config": "^1.28.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
-    "log4js": "^2.4.1",
-    "serve-favicon": "^2.4.5"
+    "morgan": "^1.9.0",
+    "serve-favicon": "^2.4.5",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.1",
