@@ -19,7 +19,7 @@ A rich performant react app can have a lot of fiddly parts once you start adding
  - Production ready app bundled with Parcel (Its lightning quick & to avoid webpack config maintenance)
  - Code splitting hooks to optimise downloaded bundle size
  - Server side rendering to provide best SEO and load performance
- - Logging (to file & console) in production with [log4js](https://www.npmjs.com/package/log4js)
+ - Logging (to file & console) in with [winston](https://www.npmjs.com/package/winston)
  - Easy app config in different environments with [config](https://www.npmjs.com/package/config)
 
 ### 🐵 Dev
