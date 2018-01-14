@@ -1,5 +1,5 @@
 //group common componets into a single module of exports so we have 
-//less import boilerplate in pages/components
+//less import boilerplate in pages and components
 
 export {default as MainHeader} from './common/MainHeader/MainHeader';
 export {default as MainFooter} from './common/MainFooter/MainFooter';

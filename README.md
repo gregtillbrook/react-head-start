@@ -12,11 +12,11 @@ A rich performant react app can have a lot of fiddly parts once you start adding
 
 ### 🚀 All the react goodness
  - [React v16](https://www.npmjs.com/package/react), [Redux](https://www.npmjs.com/package/redux), [React Router v4](https://www.npmjs.com/package/react-router) provide the core
- - ES2017+ standard modern javascript (+ static class props because )
+ - ES2017+ standard modern javascript
  - Server is [express v4](https://www.npmjs.com/package/express) (running on Node 8 and up)
 
 ### 📦 Production ready
- - Production ready app bundled with Parcel (Its lightning quick & to avoid webpack config maintenance)
+ - Production ready app bundled with Parcel i.e. no webpack. Its lightning quick & and zero configuration so need to maintain webpack configuration.
  - Code splitting hooks to optimise downloaded bundle size
  - Server side rendering to provide best SEO and load performance
  - Logging (to file & console) in with [winston](https://www.npmjs.com/package/winston)
@@ -24,10 +24,10 @@ A rich performant react app can have a lot of fiddly parts once you start adding
 
 ### 🐵 Dev
  - Instant updates in browser following code changes with Hot Reloading
- - Auto reloading of node upon server code changes with Nodemon
- - Basic SCSS styling in place to extend with what you need or replace with your css-in-js solution of choice
- - Sensible (opiniated) project structure for modular component dev
- - (TODO) watch tasks to lint and unit test continuously on code changes
+ - Auto reloading of node upon server code changes thanks to [Nodemon](https://www.npmjs.com/package/nodemon)
+ - Basic SCSS styling in place to extend with what you need or replace with your css-in-js solution of choice.
+ - Sensible (opiniated) project structure for modular component dev. The code/styling/tests/etc for component are all in the same folder.
+ - Watch task to lint and unit test continuously on code changes
 
 ### ⛑ Code Quality
  - Syntax checking (aka linting) with [eslint](https://www.npmjs.com/package/eslint)
@@ -43,3 +43,9 @@ cd my-react-app
 npm installs
 npm run dev
 ```
+
+
+# TODO
+Stuff not done yet that Im considering adding
+ - code coverage reporting + make sure this bootstrap starts from 100% coverage
+ - servive working for Progrssive Web App starter

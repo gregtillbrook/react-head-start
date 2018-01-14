@@ -19,13 +19,26 @@
     "prod:copy-files": "cd src/ && npx copyfiles './{static,static-root}/**/*' ../dist",
     "prod:serve": "cross-env NODE_ENV=production node dist/server/",
     "test": "npm run lint && npm run test:unit && npm run test:e2e",
+    "test:quick": "npm run lint && npm run test:unit",
     "lint": "npx eslint --ext jsx,js src/** test/**",
     "test:unit": "npx jest --config ./test/unit-test/jest.config.js",
     "test:e2e": "npm run prod:build && NODE_ENV=test node-while -s ./dist/server/index.js -r 'npx cypress run'",
+    "test:watch": "npm-watch",
     "todo": "npx fixme -i 'node_modules/**' -i '.git/**' -i 'dist/**' --skip note"
   },
   "browser": {
-    "./src/client/codeSplitMappingsSync.js": "./src/client/codeSplitMappingsAsync.js"
+    "./src/client/codeSplitMappingsSync.js": "./src/client/codeSplitMappingsAsync.js",
+    "config": "./src/client/utils/clientConfig.js"
+  },
+  "watch": {
+    "test:quick": {
+      "patterns": [
+        "src",
+        "test"
+      ],
+      "extensions": "js,jsx",
+      "quiet": false
+    }
   },
   "postcss": {
     "modules": false,
@@ -49,7 +62,7 @@
     "express": "^4.16.2",
     "morgan": "^1.9.0",
     "serve-favicon": "^2.4.5",
-    "winston": "^2.4.0"
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.1",
@@ -78,6 +91,7 @@
     "node-sass": "^4.7.2",
     "node-while": "^1.0.1",
     "nodemon": "^1.12.7",
+    "npm-watch": "^0.3.0",
     "parcel-bundler": "^1.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

@@ -7,44 +7,51 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import config from 'config';
 import {Helmet} from 'react-helmet';
+import getLog from '../utils/logger';
 
 import routes from '../../client/routes';
 import reducers from '../../client/reducers';
 
 
+const log = getLog();
+
 export default async (req, res) => {
-  //TODO: top level error handler
-  //TODO: set status on 404/500
-  let content, store, helmet,
-    clientData = {
-      clientConfig: config.clientConfig,
-      initialState: {},
-      renderStats: {}
-    }, 
-    dataFetchTime = 0, 
-    renderTime = 0;
+  try {
+    let content, store, helmet,
+      clientData = {
+        clientConfig: config.clientConfig,
+        initialState: {},
+        renderStats: {}
+      }, 
+      dataFetchTime = 0, 
+      renderTime = 0;
 
-  if(config.enableServerSideRender){
-    const dataFetchStart = Date.now();
-    store = await fetchDataAndInitReduxStore(req.url);
-    clientData.initialState = store.getState();
-    dataFetchTime = Date.now() - dataFetchStart;
-    
-    const renderStart = Date.now();
-    content = renderReactAppContent(store, req.url);
-    helmet = Helmet.renderStatic();
-    renderTime = Date.now() - renderStart;
+    if(config.enableServerSideRender){
+      const dataFetchStart = Date.now();
+      store = await fetchDataAndInitReduxStore(req.url);
+      clientData.initialState = store.getState();
+      dataFetchTime = Date.now() - dataFetchStart;
+      
+      const renderStart = Date.now();
+      content = renderReactAppContent(store, req.url);
+      helmet = Helmet.renderStatic();
+      renderTime = Date.now() - renderStart;
+    }
+
+    clientData.stats = {
+      'ssr data fetch time':dataFetchTime,
+      'ssr render time':renderTime,
+      'total ssr time':dataFetchTime+renderTime
+    };
+
+    res.setHeader('Content-Type', 'text/html');
+    res.send(renderHTML(content, clientData, helmet));
+
+  } catch (error) {
+    log.error(error.stack);
+    //TODO: set path relative to server folder so it works in prod
+    res.status(500).sendFile('src/server/views/500.html', {root: process.cwd() });
   }
-
-  clientData.stats = {
-    'ssr data fetch time':dataFetchTime,
-    'ssr render time':renderTime,
-    'total ssr time':dataFetchTime+renderTime
-  };
-
-  res.setHeader('Content-Type', 'text/html');
-  res.send(renderHTML(content, clientData, helmet));
-
 };
 
 async function fetchDataAndInitReduxStore(url){

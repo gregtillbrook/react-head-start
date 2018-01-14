@@ -8,7 +8,7 @@ module.exports = {
   //config inside here will be available in the client browser app
   clientConfig:{
     //WARNING: dont put anything sensitive in here - it WILL be publicly visible in the client browser
-    exampleProp:1234
+    apiHost: 'http://localhost:5000',
   },
 
   enableServerSideRender:true,

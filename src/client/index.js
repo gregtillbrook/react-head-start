@@ -1,3 +1,4 @@
+//this is the entry point for the client app bundle
 import 'babel-polyfill';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -10,14 +11,12 @@ import thunk from 'redux-thunk';
 
 import routes from './routes';
 import reducers from './reducers';
+import 'config'; //see utils/clientConfig.js
 import './index.scss';
 
 
 const initData = window.__INIT_DATA_FROM_SERVER_RENDER__;
-//eslint-disable-next-line no-console
-console.log('config', initData.clientConfig);
-//eslint-disable-next-line no-console
-console.log('server render stats', initData.stats);
+console.log('server render stats', initData.stats);  //eslint-disable-line no-console 
 
 const store = createStore(
   reducers, initData.initialState, applyMiddleware(thunk)

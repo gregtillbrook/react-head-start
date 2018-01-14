@@ -1,3 +1,4 @@
+//this is the entry point for the server app
 import express from 'express';
 import favicon from 'serve-favicon';
 import cookieParser from 'cookie-parser';
@@ -25,8 +26,7 @@ if(config.logIncomingHttpRequests){
 app.disable('x-powered-by');
 
 app.use(cookieParser());
-// GZip compress responses
-app.use(compression());
+app.use(compression()); // GZip compress responses
 
 //static files
 app.use(favicon(path.join(__dirname, '../static/favicon.ico')));
