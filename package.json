@@ -20,7 +20,7 @@
     "prod:serve": "cross-env NODE_ENV=production node dist/server/",
     "test": "npm run lint && npm run test:unit && npm run test:e2e",
     "test:quick": "npm run lint && npm run test:unit",
-    "lint": "npx eslint --ext jsx,js src/** test/**",
+    "lint": "npx eslint --ext jsx,js src test",
     "test:unit": "npx jest --config ./test/unit-test/jest.config.js",
     "test:e2e": "npm run prod:build && NODE_ENV=test node-while -s ./dist/server/index.js -r 'npx cypress run'",
     "test:watch": "npm-watch",
