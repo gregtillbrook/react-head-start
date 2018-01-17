@@ -19,7 +19,7 @@ A rich performant react app can have a lot of fiddly parts once you start adding
  - Production ready app bundled with Parcel i.e. no webpack. Its lightning quick & and zero configuration so need to maintain webpack configuration.
  - Code splitting hooks to optimise downloaded bundle size
  - Server side rendering to provide best SEO and load performance
- - Logging (to file & console) in with [winston](https://www.npmjs.com/package/winston)
+ - Logging (to file & console) with [winston](https://www.npmjs.com/package/winston)
  - Easy app config in different environments with [config](https://www.npmjs.com/package/config)
 
 ### 🐵 Dev
@@ -48,4 +48,4 @@ npm run dev
 # TODO
 Stuff not done yet that Im considering adding
  - code coverage reporting + make sure this bootstrap starts from 100% coverage
- - servive working for Progrssive Web App starter
+ - service working for Progressive Web App starter
