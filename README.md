@@ -2,9 +2,11 @@
 
 A React App bootstrap with Server Side Rendering, Code Splitting, Hot Reloading, Redux and React Router.
 
-[![Build Status](https://travis-ci.org/gregtillbrook/react-head-start.svg?branch=master)](https://travis-ci.org/gregtillbrook/react-head-start) 
-[![dependency up-to-dateness](https://david-dm.org/gregtillbrook/react-head-start.svg)](https://david-dm.org/gregtillbrook/react-head-start)
-[![Known Vulnerabilities](https://snyk.io/test/github/gregtillbrook/react-head-start/badge.svg)](https://snyk.io/test/github/gregtillbrook/react-head-start)
+[![Linux CI Build][travis-image]][travis-url]
+[![Windows CI Build][appveyor-image]][appveyor-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+[![Dependency Up-to-dateness][david-image]][david-url]
+
 
 A rich performant react app can have a lot of fiddly parts once you start adding things like SSR(Server Side Rendering), Code Splitting & Hot loading. You also tend to want similar core setups in each new app you make. This bootstrap aims to capture that setup in a re-usable form and do it in a way that is as clean and intuitive as is (reasonably) possible.
 
@@ -49,3 +51,13 @@ npm run dev
 Stuff not done yet that Im considering adding
  - code coverage reporting + make sure this bootstrap starts from 100% coverage
  - service working for Progressive Web App starter
+
+
+[travis-image]: https://img.shields.io/travis/gregtillbrook/react-head-start/master.svg?label=Linux%20CI%20Build
+[travis-url]: https://travis-ci.org/gregtillbrook/react-head-start
+[appveyor-image]: https://img.shields.io/appveyor/ci/gregtillbrook/react-head-start/master.svg?label=Windows%20CI%20Build
+[appveyor-url]: https://ci.appveyor.com/project/gregtillbrook/react-head-start
+[snyk-image]: https://snyk.io/test/github/gregtillbrook/react-head-start/badge.svg
+[snyk-url]: https://snyk.io/test/github/gregtillbrook/react-head-start
+[david-image]: https://david-dm.org/gregtillbrook/react-head-start.svg
+[david-url]: https://david-dm.org/gregtillbrook/react-head-start
