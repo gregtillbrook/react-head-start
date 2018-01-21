@@ -31,7 +31,6 @@ module.exports = {
   "rules": {
       //general
       "indent": [ "error", 2 ],
-      "linebreak-style": [ "error", "unix" ],
       "quotes": [ "error", "single" ],
       "semi": [ "error", "always" ],
       "no-console": ["error", { allow: ["warn", "error"] }],

@@ -1,6 +1,6 @@
 node_modules
 dist
-logs
+logs/*.log
 coverage
 .cache
 config/local.js

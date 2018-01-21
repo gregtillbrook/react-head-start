@@ -1,0 +1,1 @@
+This is the default location for winston server logs (configurable in config files)
