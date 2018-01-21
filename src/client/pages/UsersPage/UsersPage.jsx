@@ -1,3 +1,5 @@
+//A slightly more complex page showing redux binding. Note the 'fetchData' static method
+//that is used during SSR to call all the necessary actions to create the page 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -13,6 +15,10 @@ export class UsersPage extends Component {
     users: PropTypes.array
   };
   
+  //This is used during SSR - see src/server/routes/renderPageRoute.js (fetchDataAndInitReduxStore)
+  //As you add pages to your app you just need to make sure fetchData is called where necessary and you 
+  //shouldnt need to delve into server code very often. It is good to understand what the server code is 
+  //doing during SSR though
   static fetchData(store) {
     return store.dispatch(fetchUsers());
   }

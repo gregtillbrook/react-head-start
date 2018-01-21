@@ -1,6 +1,6 @@
 //put all app configuration here with a sensible default and then override per machine/environment/etc in other config files
 //more docs on how config files work = https://github.com/lorenwest/node-config/wiki/Configuration-Files
-//note: temp local config can be put into config/local.js (it's git ignored)
+//note: temporary local config (for local debugging/development) can be put into config/local.js (it's git ignored)
 module.exports = {
   host: undefined,
   port: 5000,

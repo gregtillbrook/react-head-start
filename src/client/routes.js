@@ -1,3 +1,5 @@
+//Note: although react-router 4 allows for dynamic/distributed routing, we need
+//to use a single static route config for the code-splitting to work
 import App from './App';
 import {HomePage, UsersPage, ErrorPage} from './codeSplitMappingsSync';
 

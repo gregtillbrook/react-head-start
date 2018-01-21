@@ -1,3 +1,8 @@
+/*
+Setup for winston logger. Default logger setup is to console and to file. Common
+config (like desired log level, or log file location) is already controlled by config 
+files (see config/default.js) so they can be easily configured per environment.
+*/
 import path from 'path';
 import winston, {config as winstonConfig} from 'winston';
 import callerCallsite from 'caller-callsite';

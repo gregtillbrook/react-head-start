@@ -21,9 +21,8 @@ if(config.logIncomingHttpRequests){
   app.use(morgan('short', { stream: { write: message => incomingLog.info(message.trim()) }}));
 }
 
-//TODO: helmet
 //dont reveal whats running server
-app.disable('x-powered-by');
+app.disable('x-powered-by'); //TODO: helmet
 
 app.use(cookieParser());
 app.use(compression()); // GZip compress responses
@@ -31,21 +30,22 @@ app.use(compression()); // GZip compress responses
 //static files
 app.use(favicon(path.join(__dirname, '../static/favicon.ico')));
 app.use('/', express.static(path.join(__dirname, '../static')));
-//bundles is mapped like this so dev and prod builds both work (as dev uses src/static while prod uses dist/static)
+//bundles are mapped like this so dev and prod builds both work (as dev uses src/static while prod uses dist/static)
 app.use('/bundles', express.static(path.join(__dirname, '../../dist/bundles')));
 
 //API
 app.get('/api/users', getUsers);
 
-//will handle page routing and 404 fallbacks
+//all page rendering
+//Note: handles page routing and 404/500 error pages where necessary
 app.get('*', renderPageRoute);
 
 
 const server = app.listen(config.port, function () {
   banner();
   log.info(`Server started on port ${server.address().port} in ${app.get('env')} mode`);
-  //Its very useful to output init config to console at startup but we deliverately dont dump it to
-  //log files incase it contains sensetive info
+  //Its very useful to output init config to console at startup but we deliberately dont dump it to
+  //log files incase it contains sensetive info (like keys for services etc)
   console.log(config);//eslint-disable-line no-console
   //'ready' is a hook used by the e2e (integration) tests (see node-while)
   server.emit('ready');

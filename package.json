@@ -19,11 +19,12 @@
     "prod:copy-files": "cross-env npx copyfiles -u 1 'src/static/**/*' dist",
     "prod:serve": "cross-env NODE_ENV=production node dist/server/",
     "test": "npm run lint && npm run test:unit && npm run test:e2e",
-    "test:quick": "npm run lint && npm run test:unit",
     "lint": "npx eslint --ext jsx,js src test",
     "test:unit": "npx jest --config test/unit-test/jest.config.js",
     "test:e2e": "npm run prod:build && cross-env NODE_ENV=test node-while -s dist/server/index.js -r \"node node_modules/cypress/bin/cypress run\"",
+    "test:e2e:dev": "npx cypress open --env env=production",
     "test:watch": "npm-watch",
+    "test:quick": "npm run lint && npm run test:unit",
     "todo": "npx fixme -i 'node_modules/**' -i '.git/**' -i 'dist/**' --skip note"
   },
   "browser": {

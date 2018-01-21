@@ -1,3 +1,6 @@
+//Meant as top level layout for pages - i.e. sites tend to have the same (or a few) layout(s) 
+//of header/navigation/footer around each pages content layouts provide a good way to compose 
+//pages in a clear declarative way
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MainHeader from '../MainHeader/MainHeader';

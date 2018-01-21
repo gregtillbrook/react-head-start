@@ -1,3 +1,4 @@
+//Simple error page 
 import React, { Component } from 'react';
 import {MainLayout} from '../../components/';
 

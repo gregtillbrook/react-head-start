@@ -1,5 +1,8 @@
 /*
-
+This file is paired with codeSplitMappingsSync.js - they must the same exports
+This file is imported in the client bundle while codeSplitMappingsSync is imported on 
+the server (see package.json "browser" mappings) - this is necessary for code splitting to work. 
+The dynamic import(...) calls below are what define the seperate code splitting sub bundles.
 */
 import { asyncComponent } from 'react-async-component';
 import {Loading, ErrorMessage} from './components/';

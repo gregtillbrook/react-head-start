@@ -12,9 +12,10 @@ import thunk from 'redux-thunk';
 import routes from './routes';
 import reducers from './reducers';
 import 'config'; //see utils/clientConfig.js
-import './index.scss';
+import './index.scss'; //Parcel will use this import to build the css bundle 
 
 
+//The SSR(Sever Side Render) passes data to client via __INIT_DATA_FROM_SERVER_RENDER__
 const initData = window.__INIT_DATA_FROM_SERVER_RENDER__;
 console.log('server render stats', initData.stats);  //eslint-disable-line no-console 
 

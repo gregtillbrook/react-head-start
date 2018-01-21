@@ -49,7 +49,7 @@ export default async (req, res) => {
 
   } catch (error) {
     log.error(error.stack);
-    //TODO: set path relative to server folder so it works in prod
+    //TODO: set path relative to server folder so it works in prod (i.e. from dist/server)
     res.status(500).sendFile('src/server/views/500.html', {root: process.cwd() });
   }
 };
@@ -58,6 +58,7 @@ async function fetchDataAndInitReduxStore(url){
   const store = createStore(reducers, applyMiddleware(thunk));  
 
   const branch = matchRoutes(routes, url);
+  //look for the 'fetchData' static method in the page to be rendered
   const promises = branch.map(({route}) => {
     let fetchData = route.component.fetchData;
     return fetchData instanceof Function ? fetchData(store) : Promise.resolve(null);

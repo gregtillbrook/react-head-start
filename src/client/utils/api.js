@@ -1,3 +1,4 @@
+//iso fetch so we use fetch during SSR
 import 'isomorphic-fetch';
 import config from 'config';
 

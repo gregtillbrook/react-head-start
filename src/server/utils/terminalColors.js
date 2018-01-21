@@ -1,4 +1,4 @@
-
+//ANSI codes for coloring terminal output
 //https://coderwall.com/p/yphywg/printing-colorful-text-in-terminal-when-run-node-js-script
 export default {
   //text colour
