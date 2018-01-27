@@ -1,7 +1,7 @@
 import Loading from './Loading';
 
 
-describe('components/commmon/ErrorMessage', function() {
+describe('components/common/ErrorMessage', function() {
 
   it('should show content', function() {
     const cmp = shallow(<Loading />);
