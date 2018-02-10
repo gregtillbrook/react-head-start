@@ -12,6 +12,7 @@
     "prod": "npm run prod:build && npm run prod:serve",
     "clean": "rimraf dist",
     "dev:build": "npm run clean && cross-env NODE_ENV=development parcel watch src/client/index.js --out-dir dist/bundles",
+    "dev:build:css": "npm run clean && cross-env NODE_ENV=development parcel watch src/client/index.scss --out-dir dist/bundles",
     "dev:serve": "cross-env NODE_ENV=development npx nodemon --exec babel-node --ext js,jsx --delay 0.5 --watch src --watch test src/server/",
     "prod:build": "npm run clean && npm run prod:copy-files && npm run prod:build-client && npm run prod:build-server ",
     "prod:build-client": "cross-env NODE_ENV=production parcel build src/client/index.js --public-url / --out-dir dist/bundles",
@@ -25,7 +26,10 @@
     "test:e2e:dev": "npx cypress open --env env=production",
     "test:watch": "npm-watch",
     "test:quick": "npm run lint && npm run test:unit",
-    "todo": "npx fixme -i 'node_modules/**' -i '.git/**' -i 'dist/**' --skip note"
+    "todo": "npx fixme -i 'node_modules/**' -i '.git/**' -i 'dist/**' --skip note",
+    "storybook": "npm-run-all --parallel dev:build:css storybook:serve",
+    "storybook:serve": "wait-on ./dist/bundles/index.css && start-storybook -p 6006",
+    "storybook:build": "build-storybook"
   },
   "browser": {
     "./src/client/codeSplitMappingsSync.js": "./src/client/codeSplitMappingsAsync.js",
@@ -66,6 +70,12 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.12",
+    "@storybook/addon-links": "^3.3.12",
+    "@storybook/addon-notes": "^3.3.12",
+    "@storybook/addon-options": "^3.3.12",
+    "@storybook/addons": "^3.3.12",
+    "@storybook/react": "^3.3.12",
     "autoprefixer": "^7.2.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -88,6 +98,7 @@
     "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-react": "^7.5.1",
     "fixme": "^0.4.4",
+    "github-markdown-css": "^2.10.0",
     "jest": "^21.2.1",
     "node-sass": "^4.7.2",
     "node-while": "^1.0.1",
@@ -106,7 +117,9 @@
     "react-router-test-context": "^0.1.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "storybook-router": "^0.3.2",
+    "wait-on": "^2.1.0"
   },
   "keywords": [
     "react",

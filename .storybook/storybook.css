@@ -1,0 +1,7 @@
+/* custom styles used in storybook */
+
+.markdown-body{
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 20px;
+}

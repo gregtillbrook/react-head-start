@@ -16,9 +16,9 @@ export class UsersPage extends Component {
   };
   
   //This is used during SSR - see src/server/routes/renderPageRoute.js (fetchDataAndInitReduxStore)
-  //As you add pages to your app you just need to make sure fetchData is called where necessary and you 
-  //shouldnt need to delve into server code very often. It is good to understand what the server code is 
-  //doing during SSR though
+  //As you add pages to your app you just need to make sure fetchData calls the necessary actions to 
+  //load data the page needs and you shouldnt need to delve into server code very often. It is good 
+  //to understand what the server code is doing during SSR though.
   static fetchData(store) {
     return store.dispatch(fetchUsers());
   }

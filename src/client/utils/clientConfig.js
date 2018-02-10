@@ -3,7 +3,7 @@
 
 //This module initialises itself at import time to reduce the risk of other client code
 //access config before it's ready
-const initData = window.__INIT_DATA_FROM_SERVER_RENDER__;
+const initData = window.__INIT_DATA_FROM_SERVER_RENDER__ || {clientConfig:{}};
 console.log('config', initData.clientConfig); //eslint-disable-line no-console
 
 const config = {

@@ -4,6 +4,8 @@
 @import "./global-scss/common";
 
 //components
+@import "./components/common/ErrorMessage/ErrorMessage";
+@import "./components/common/Loading/Loading";
 @import "./components/common/MainHeader/MainHeader";
 @import "./components/common/MainFooter/MainFooter";
 @import "./components/common/MainLayout/MainLayout";

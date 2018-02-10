@@ -20,7 +20,7 @@ A rich performant react app can have a lot of fiddly parts once you start adding
  - Server is [express v4](https://www.npmjs.com/package/express) (running on Node 8 and up)
 
 ### 📦 Production ready
- - Production ready app bundled with Parcel i.e. no webpack. Its lightning quick & and zero configuration so no need to maintain a webpack (or grunt or gulp) config file.
+ - Production ready app bundled with Parcel i.e. no webpack. Its lightning quick & and zero configuration so no need to maintain a webpack (or grunt or gulp) config file
  - [Code splitting](https://parceljs.org/code_splitting.html) hooks to optimise downloaded bundle size
  - Server side rendering to provide best SEO and load performance
  - Logging (to file & console) with [winston](https://www.npmjs.com/package/winston)
@@ -29,8 +29,9 @@ A rich performant react app can have a lot of fiddly parts once you start adding
 ### 🐵 Dev
  - Instant updates in browser following code changes with Hot Reloading (aka HMR or [Hot Module Replacement](https://parceljs.org/hmr.html))
  - Auto reloading of node upon server code changes thanks to [Nodemon](https://www.npmjs.com/package/nodemon)
- - Basic SCSS styling in place to extend with what you need or replace with your css-in-js solution of choice.
- - Sensible (opiniated) project structure for modular component dev. The code/styling/tests/etc for component are all in the same folder.
+ - Interactive development/debugging/testing of UI components with [Storybook](https://storybook.js.org/)
+ - Basic SCSS styling in place to extend with what you need or replace with your css-in-js solution of choice
+ - Sensible (opiniated) project structure for modular component dev. The code/styling/tests/etc for component are all in the same folder
  - Watch task to lint and unit test continuously on code changes
 
 ### ⛑ Code Quality
@@ -57,7 +58,7 @@ The npm scripts may look confusing at first but most arent meant to be called di
 Standard dev command. Runs up the app in 'dev' mode with auto reloading on server code changes + hot reloading of client.
 
 ```npm run prod```
-Builds app in production mode (minified & faster than dev mode) and serves prod app. If you need to build and serve indepentally (which you probably do) use ```npm run prod:build``` and ```npm run prod:serve```. Note: prod:build is broken down into several sub tasks (client build, server build, copy files to dist folder) for readability but you wont need to run those individuakky.
+Builds app in production mode (minified & faster than dev mode) and serves prod app. If you need to build and serve indepentally (which you probably do) use ```npm run prod:build``` and ```npm run prod:serve```. Note: prod:build is broken down into several sub tasks (client build, server build, copy files to dist folder) for readability but you wont need to run those individually.
 
 ```npm test```
 Runs linting, unit tests and end to end tests. This is what the CI build runs and is good practice to run before each commit. You can also individually run ```npm run lint``` ```npm run test:unit``` and ```npm run test:e2e```.
@@ -69,6 +70,9 @@ Runs a watch task that runs linting and unit tests each time the code changes. T
 Use this when authoring e2e tests. ```npm run test:e2e``` runs the tests in headless mode and handles the build + running of the app which is great for test runs and CI but is not optimal for developing and debugging. To develope e2e tests 
  - In a terminal window, start up the app with ```npm run prod```
  - In a second terminal window, open the cypress UI with ```npm run test:e2e:dev```
+
+```npm run storybook```
+For interactive development/debugging/testing of components. You can also use ```npm run storybook:build``` to generate a static storybook site
 
 ```npm run todo```
 A little helper to console log a list of all TODO notes in the app.
@@ -98,8 +102,8 @@ Ive tried to comment this app quite heavily so it's easier to understand what's 
 Stuff not done yet that Im considering adding;
  - code coverage reporting (+ make sure this bootstrap starts from 100% coverage)
  - service worker for [Progressive Web App](https://developers.google.com/web/progressive-web-apps/)
- - [storybook](https://storybook.js.org/)
  - [prettier](https://www.npmjs.com/package/prettier)
+ - Internationisation
 
 
 [travis-image]: https://img.shields.io/travis/gregtillbrook/react-head-start/master.svg?label=Linux%20CI%20Build
