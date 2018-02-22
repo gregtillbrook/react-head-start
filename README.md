@@ -88,7 +88,7 @@ The value of code splitting depends a lot on the structure of your app. If you h
 Historically, server side rendering has been important for things like SEO (search engines would index static html only) and page load performance. But nowadays these things are less of an issue e.g. google now executes javascript when indexing a page (although other search engines still vary in js support). So again, your apps structure and requirements will dictate how valuable SSR is to you.
 
 ### This thing has a lot of crap I don't want
-React bootstraps tend to be opiniated by their nature. The trick is hitting the balance between adding stuff thats useful and bloating it with useless stuff that makes the starter app harder to understand. Feedback is welcome in this regard - have I added too much stuff? or is the bootstrap missing something important?
+React bootstraps tend to be opiniated by their nature. The trick is hitting the balance between adding stuff thats useful and bloating it with useless stuff that makes the starter app harder to understand. What do you think - is there something important missing? or have I included something that really shouldnt be here?
 
 ### Where's webpack?
 Webacks configurability is great for complex apps or those requiring very specific builds. If you can avoid having to write/maintain a webpack config then thats a win - so I preferr to start with Parcel or create-react-app and swap to full webpack only when needed.
@@ -103,7 +103,7 @@ Stuff not done yet that Im considering adding;
  - code coverage reporting (+ make sure this bootstrap starts from 100% coverage)
  - service worker for [Progressive Web App](https://developers.google.com/web/progressive-web-apps/)
  - [prettier](https://www.npmjs.com/package/prettier)
- - Internationisation
+ - Internationalisation
 
 
 [travis-image]: https://img.shields.io/travis/gregtillbrook/react-head-start/master.svg?label=Linux%20CI%20Build
