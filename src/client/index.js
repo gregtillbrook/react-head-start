@@ -1,5 +1,5 @@
 //this is the entry point for the client app bundle
-import 'babel-polyfill';
+import './utils/polyfills';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {hydrate} from 'react-dom';

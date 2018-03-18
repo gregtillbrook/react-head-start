@@ -1,7 +1,7 @@
 /*
 Code Splitting config for Syncronous load (aka on server)
 
-This file is paired with codeSplitMappingsAsync.js - they must the same exports
+This file is paired with codeSplitMappingsAsync.js - they must have the same exports.
 This file is imported on the server while codeSplitMappingsAsync is imported in the client 
 bundle (see package.json "browser" mappings) - this is necessary for code splitting to work. 
 Unlike codeSplitMappingsAsync all imports on server are standard module imports (the server 
