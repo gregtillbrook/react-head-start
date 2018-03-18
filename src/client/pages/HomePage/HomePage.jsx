@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import {MainLayout, Helmet} from '../../components/';
 
+
 export default class HomePage extends Component {
   render() {
     return (
@@ -11,7 +12,6 @@ export default class HomePage extends Component {
         </Helmet>
 
         <h2>Home Page</h2>
-        
       </MainLayout>
     );
   }
